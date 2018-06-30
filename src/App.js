@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import dogs from './dogs.json'
+import scotts from './scotts.json'
 import Wrapper from './components/Wrapper'
 import Navpills from './components/Navpills'
 import Title from './components/Title'
@@ -11,8 +11,8 @@ class App extends Component {
         message: "Click an image to begin!",
         topScore: 0,
         curScore: 0,
-        dogs: dogs,
-        unselectedDogs: dogs
+        scotts: scotts,
+        unselectedDogs: scotts
     }
 
     componentDidMount() {
@@ -34,8 +34,8 @@ class App extends Component {
                 message: "You guessed incorrectly!",
                 topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
                 curScore: 0,
-                dogs: dogs,
-                unselectedDogs: dogs
+                scotts: scotts,
+                unselectedDogs: scotts
             });
         }
         else {
@@ -45,12 +45,12 @@ class App extends Component {
             this.setState({ 
                 message: "You guessed correctly!",
                 curScore: this.state.curScore + 1,
-                dogs: dogs,
+                scotts: scotts,
                 unselectedDogs: newDogs
             });
         }
 
-        this.shuffleArray(dogs);
+        this.shuffleArray(scotts);
     };
 
     render() {
@@ -63,7 +63,7 @@ class App extends Component {
                 />
                 <Title />
                 {
-                    this.state.dogs.map(dog => (
+                    this.state.scotts.map(dog => (
                         <DogCard
                             breed={dog.breed}
                             image={dog.image}
